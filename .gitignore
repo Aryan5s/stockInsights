@@ -1,4 +1,2 @@
 node_modules
-Content/*
-!Content/.gitkeep
-config/db.sqlite
+.env

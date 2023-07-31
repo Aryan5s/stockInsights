@@ -1,19 +1,24 @@
-const { Sequelize } = require("sequelize");
+const { MongoClient } = require('mongodb');
+require('dotenv').config();
+const mongoURL = process.env.MONGO_URL;
 
-//* Instantiates sequelize with the name of database, username, password and configuration options
-const createDB = new Sequelize("test-db", "user", "pass", {
-  dialect: "sqlite",
-  host: "./config/db.sqlite",
-});
+async function connectDB() {
+  try {
+    const client = await MongoClient.connect(mongoURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-//* Connects the ExpressJS app to DB
-const connectToDB = () => {
-  createDB
-    .sync()
-    .then((res) => {
-      console.log("Successfully connected to database");
-    })
-    .catch((err) => console.log("Cannot connect to database due to:", err));
+    const db = client.db();
+    console.log('Connected to MongoDB');
+    return db;
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    throw error;
+  }
+}
+
+module.exports = {
+  connectDB,
 };
 
-module.exports = { createDB, connectToDB };
