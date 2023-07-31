@@ -15,8 +15,8 @@ git clone https://github.com/Aryan5s/stockInsights.git
 -  Open it in the IDE of your Choice.
 -   Open the terminal and Type in the following Code :
   ```sh
-npm install
-npm start
+npm install // installs all the dependencies
+npm start // Runs your Nodemon Server
 ```
 ## Routes
 ## Get Announcements Routes
