@@ -10,7 +10,7 @@ PORT , MONGODB_URL , DB_NAME , COLLECTION_NAME
 ## Running the code Locally 
 -  Clone the Repository on to your local system.
 ```sh
-git clone jks
+git clone https://github.com/Aryan5s/stockInsights.git
 ```
 -  Open it in the IDE of your Choice.
 -   Open the terminal and Type in the following Code :
